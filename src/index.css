@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #0a0a0aad;
+  --color-ink-soft: #0a0a0a99;
+  --color-ink-faint: #0a0a0a14;
+  --color-ink-ghost: #0a0a0a08;
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #ffffff8a;
+  --color-on-dark-faint: #ffffff1f;
+  --color-accent: #2b59e0;
+  --color-accent-soft: #c4623d1f;
+
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ---------- micro-interaction helpers ---------- */
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after,
+.group:hover .link-underline::after {
+  transform: scaleX(1);
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.65);
+  }
+}
+.pulse-dot {
+  animation: pulseDot 2.6s ease-in-out infinite;
+}
+
+/* ---------- entrance animations ---------- */
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* a single block that fades + rises into place */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.is-revealed .reveal.in-view {
+  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* a container whose direct children come in one after another */
+.reveal-stagger > * {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.is-revealed .reveal-stagger.in-view > * {
+  animation: revealUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(2) {
+  animation-delay: 0.13s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(3) {
+  animation-delay: 0.21s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(4) {
+  animation-delay: 0.29s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(5) {
+  animation-delay: 0.37s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(6) {
+  animation-delay: 0.45s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(7) {
+  animation-delay: 0.53s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(8) {
+  animation-delay: 0.61s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(9) {
+  animation-delay: 0.69s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(10) {
+  animation-delay: 0.77s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(11) {
+  animation-delay: 0.85s;
+}
+.is-revealed .reveal-stagger.in-view > *:nth-child(12) {
+  animation-delay: 0.93s;
+}
+
+/* hero: headline reveals line by line, then the rest follows */
+.is-revealed .reveal-hero.in-view > * {
+  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.is-revealed .reveal-hero.in-view > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.is-revealed .reveal-hero.in-view > *:nth-child(3) {
+  animation-delay: 0.64s;
+}
+.is-revealed .reveal-hero.in-view > *:nth-child(4) {
+  animation-delay: 0.76s;
+}
+.is-revealed .reveal-hero.in-view > .no-stagger {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.reveal-hero .stagger-lines > span {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.is-revealed .reveal-hero.in-view .stagger-lines > span {
+  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.is-revealed .reveal-hero.in-view .stagger-lines > span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.is-revealed .reveal-hero.in-view .stagger-lines > span:nth-child(2) {
+  animation-delay: 0.34s;
+}
+.is-revealed .reveal-hero.in-view .stagger-lines > span:nth-child(3) {
+  animation-delay: 0.48s;
+}
+
+/* page transition curtain: slide up, hold, continue up to reveal */
+@keyframes curtain {
+  0% {
+    transform: translateY(100%);
+  }
+  45% {
+    transform: translateY(0);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.curtain {
+  animation: curtain 1s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal,
+  .reveal-stagger > *,
+  .reveal-hero .stagger-lines > span {
+    opacity: 1 !important;
+  }
+  .curtain {
+    animation-duration: 0.001ms !important;
+  }
+}
