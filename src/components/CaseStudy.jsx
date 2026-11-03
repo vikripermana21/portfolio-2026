@@ -1,24 +1,24 @@
-import ShaderCanvas from './ShaderCanvas.jsx'
-import Reveal from './Reveal.jsx'
-import { Container, ArrowUpRight } from './ui.jsx'
-import { caseStudies, getNext, getStudy } from '../caseStudies.js'
+import ShaderCanvas from "./ShaderCanvas.jsx";
+import Reveal from "./Reveal.jsx";
+import { Container, ArrowUpRight } from "./ui.jsx";
+import { caseStudies, getNext, getStudy } from "../caseStudies.js";
 
 const navLinks = [
-  ['Work', '/#work'],
-  ['About', '/#about'],
-  ['Expertise', '/#services'],
-  ['Contact', '/#contact'],
-]
+  ["Work", "/#work"],
+  ["About", "/#about"],
+  ["Expertise", "/#services"],
+  ["Contact", "/#contact"],
+];
 
 export default function CaseStudy({ slug }) {
-  const study = getStudy(slug) || caseStudies[0]
-  const next = getNext(study.slug)
+  const study = getStudy(slug) || caseStudies[0];
+  const next = getNext(study.slug);
   const meta = [
-    ['ROLE', study.role],
-    ['YEAR', study.year],
-    ['DOMAIN', study.domain],
-    ['STATUS', study.status],
-  ]
+    ["ROLE", study.role],
+    ["YEAR", study.year],
+    ["DOMAIN", study.domain],
+    ["STATUS", study.status],
+  ];
 
   return (
     <>
@@ -123,7 +123,7 @@ export default function CaseStudy({ slug }) {
                 WHAT I DID
               </span>
               <span className="text-[12px] font-semibold tracking-[1.6px] text-ink-muted">
-                {String(study.contributions.length).padStart(2, '0')} ITEMS
+                {String(study.contributions.length).padStart(2, "0")} ITEMS
               </span>
             </div>
           </Reveal>
@@ -135,7 +135,7 @@ export default function CaseStudy({ slug }) {
             {study.contributions.map(([title, desc], i) => (
               <div key={title} className="flex gap-6">
                 <span className="text-[13px] font-medium text-accent">
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="flex flex-col gap-2">
                   <h3 className="font-display text-[24px] leading-tight">
@@ -174,10 +174,7 @@ export default function CaseStudy({ slug }) {
 
       {/* Next project + footer */}
       <section className="bg-ink py-24 text-on-dark">
-        <Reveal
-          stagger
-          className="mx-auto w-full max-w-[1440px] px-6 md:px-16"
-        >
+        <Reveal stagger className="mx-auto w-full max-w-[1440px] px-6 md:px-16">
           <a
             href={`/work/${next.slug}`}
             className="group flex items-center justify-between gap-8"
@@ -205,12 +202,6 @@ export default function CaseStudy({ slug }) {
               >
                 vikripermana91@gmail.com
               </a>
-              <a
-                href="tel:+6281563936568"
-                className="link-underline transition-colors hover:text-on-dark"
-              >
-                +62 815 6393 6568
-              </a>
             </div>
             <a
               href="#"
@@ -225,5 +216,5 @@ export default function CaseStudy({ slug }) {
         </Reveal>
       </section>
     </>
-  )
+  );
 }

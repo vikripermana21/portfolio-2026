@@ -1,50 +1,50 @@
-import { Container, ArrowUpRight } from './ui.jsx'
-import Reveal from './Reveal.jsx'
+import { Container, ArrowUpRight } from "./ui.jsx";
+import Reveal from "./Reveal.jsx";
 
 const projects = [
   {
-    i: '01',
-    name: 'Raging Sea Shading',
-    tag: 'WebGL · GLSL',
-    url: 'https://raging-sea-shading-shaders.vercel.app',
-    img: '/thumbnails/C7rqG.png',
+    i: "01",
+    name: "Raging Sea Shading",
+    tag: "WebGL · GLSL",
+    url: "https://raging-sea-shading-shaders.vercel.app",
+    img: "/thumbnails/raging-sea.png",
   },
   {
-    i: '02',
-    name: 'Geometries',
-    tag: 'Three.js · Instancing',
-    url: 'https://position-examples.vercel.app',
-    img: '/thumbnails/zYFvr.png',
+    i: "02",
+    name: "Geometries",
+    tag: "Three.js · Instancing",
+    url: "https://position-examples.vercel.app",
+    img: "/thumbnails/position.png",
   },
   {
-    i: '03',
-    name: 'Halftone Shading',
-    tag: 'GLSL · Post FX',
-    url: 'https://halftone-shading-shaders.vercel.app',
-    img: '/thumbnails/m7X0Z.png',
+    i: "03",
+    name: "Halftone Shading",
+    tag: "GLSL · Post FX",
+    url: "https://halftone-shading-shaders.vercel.app",
+    img: "/thumbnails/halftone.png",
   },
   {
-    i: '04',
-    name: 'Crossy Road Clone',
-    tag: 'Three.js · Vite',
-    url: 'https://crossy-road-clone-gamma.vercel.app',
-    img: '/thumbnails/kH8ig.png',
+    i: "04",
+    name: "Crossy Road Clone",
+    tag: "Three.js · Vite",
+    url: "https://crossy-road-clone-gamma.vercel.app",
+    img: "/thumbnails/crossy.png",
   },
   {
-    i: '05',
-    name: 'Minecraft Scene',
-    tag: 'Three.js · Voxel',
-    url: 'https://minecraft-bake-method.vercel.app',
-    img: '/thumbnails/uxIh8.png',
+    i: "05",
+    name: "Minecraft Scene",
+    tag: "Three.js · Voxel",
+    url: "https://minecraft-bake-method.vercel.app",
+    img: "/thumbnails/minecraft.png",
   },
   {
-    i: '06',
-    name: 'Clair Obscur: Expedition 33',
-    tag: 'GLSL · Raymarch',
-    url: 'https://expedition-33-main-menu.vercel.app',
-    img: '/thumbnails/nqXBF.png',
+    i: "06",
+    name: "Clair Obscur: Expedition 33",
+    tag: "GLSL · Raymarch",
+    url: "https://expedition-33-main-menu.vercel.app",
+    img: "/thumbnails/obscur.png",
   },
-]
+];
 
 export default function GraphicsLab() {
   return (
@@ -109,7 +109,7 @@ export default function GraphicsLab() {
                   rel="noreferrer"
                   className="truncate text-[13px] text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
-                  {p.url.replace('https://', '')}
+                  {p.url.replace("https://", "")}
                 </a>
                 <a
                   href={p.url}
@@ -126,5 +126,5 @@ export default function GraphicsLab() {
         </Reveal>
       </Container>
     </section>
-  )
+  );
 }

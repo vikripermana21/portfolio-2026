@@ -1,13 +1,10 @@
-import { ArrowUpRight } from './ui.jsx'
-import Reveal from './Reveal.jsx'
+import { ArrowUpRight } from "./ui.jsx";
+import Reveal from "./Reveal.jsx";
 
 export default function Contact() {
   return (
     <section id="contact" className="group bg-ink py-24 text-on-dark">
-      <Reveal
-        stagger
-        className="mx-auto w-full max-w-[1440px] px-6 md:px-16"
-      >
+      <Reveal stagger className="mx-auto w-full max-w-[1440px] px-6 md:px-16">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <span className="pulse-dot h-2 w-2 rounded-full bg-accent" />
@@ -58,12 +55,6 @@ export default function Contact() {
             >
               vikripermana91@gmail.com
             </a>
-            <a
-              href="tel:+6281563936568"
-              className="link-underline transition-colors hover:text-on-dark"
-            >
-              +62 815 6393 6568
-            </a>
           </div>
           <a
             href="#top"
@@ -77,5 +68,5 @@ export default function Contact() {
         </footer>
       </Reveal>
     </section>
-  )
+  );
 }

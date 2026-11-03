@@ -1,7 +1,7 @@
-import { Container, ArrowUpRight } from './ui.jsx'
-import Reveal from './Reveal.jsx'
+import { Container, ArrowUpRight } from "./ui.jsx";
+import Reveal from "./Reveal.jsx";
 
-const stack = ['React', 'TypeScript', 'Next.js', 'Vue.js', 'Nest.js']
+const stack = ["React", "TypeScript", "Next.js", "Vue.js", "Nest.js"];
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
               years building secure, scalable products with React, TypeScript
               and Next.js.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap justify-center items-center gap-3">
               <a
                 href="#work"
                 className="group flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[14px] font-medium text-on-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg hover:shadow-accent/25 active:translate-y-0"
@@ -39,7 +39,7 @@ export default function Hero() {
               </a>
               <a
                 href="mailto:vikripermana91@gmail.com"
-                className="link-underline rounded-full border border-ink-faint px-6 py-3.5 text-[14px] font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-ink-muted"
+                className="rounded-full border border-ink-faint px-6 py-3.5 text-[14px] font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-ink-muted"
               >
                 vikripermana91@gmail.com
               </a>
@@ -64,5 +64,5 @@ export default function Hero() {
         </Reveal>
       </Container>
     </section>
-  )
+  );
 }
